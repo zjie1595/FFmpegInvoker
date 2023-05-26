@@ -1,6 +1,42 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id "com.vanniktech.maven.publish" version "0.25.2"
+}
+
+import com.vanniktech.maven.publish.SonatypeHost
+
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.S01)
+    signAllPublications()
+
+    coordinates("io.github.zjie1595", "ffmpeg-invoker", "1.0.0")
+
+    pom {
+        name = "FFmpegInvoker"
+        description = "A description of what my library does."
+        inceptionYear = "2023"
+        url = "https://github.com/zjie1595/FFmpegInvoker/"
+        licenses {
+            license {
+                name = "The Apache License, Version 2.0"
+                url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                distribution = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+            }
+        }
+        developers {
+            developer {
+                id = "zjie1595"
+                name = "zjie1595"
+                url = "https://github.com/zjie1595/"
+            }
+        }
+        scm {
+            url = "https://github.com/zjie1595/FFmpegInvoker/"
+            connection = "scm:git:git://github.com/zjie1595/FFmpegInvoker.git"
+            developerConnection = "scm:git:ssh://git@github.com/zjie1595/FFmpegInvoker.git"
+        }
+    }
 }
 
 android {
